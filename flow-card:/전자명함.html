@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow Connect</title>
+
+<!-- Pretendard 폰트 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+<style>
+body{
+margin:0;
+font-family:'Pretendard', sans-serif;
+}
+
+/* 🔒 잠금 화면 */
+.lock{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+}
+
+.lock input{
+padding:12px;
+font-size:16px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+text-align:center;
+}
+
+/* 🔥 배경 */
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:0;
+display:none;
+}
+
+/* 🔥 정보 박스 */
+.info-box{
+position:absolute;
+bottom:120px;
+left:50%;
+transform:translateX(-50%);
+width:80%;
+max-width:320px;
+padding:18px;
+border-radius:15px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(8px);
+color:white;
+text-align:center;
+z-index:1;
+display:none;
+}
+
+.name{
+font-size:18px;
+font-weight:600;
+margin-bottom:8px;
+}
+
+.desc{
+font-size:13px;
+line-height:1.5;
+margin-bottom:15px;
+}
+
+.btn{
+width:100%;
+padding:14px;
+border-radius:25px;
+border:none;
+background:black;
+color:white;
+color:white;
+font-size:14px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔒 잠금 화면 -->
+<div class="lock" id="lock">
+<div>비밀번호 입력</div>
+<input type="password" id="pw" maxlength="4" placeholder="4자리">
+</div>
+
+<!-- 🔥 배경 -->
+<img src="background.jpg" class="bg" id="bg">
+
+<!-- 🔥 정보 -->
+<div class="info-box" id="content">
+
+<div class="name">
+조수현 | CHO SU HYEON
+</div>
+
+<div class="desc">
+FLOW E&M CONNECT<br>
+FLOW CONNECT BACKEND DEVELOPER<br><br>
+DEVELOPER | BACKEND | WEB
+</div>
+
+<button class="btn" onclick="goInstagram()">
+INSTAGRAM ACCOUNT
+</button>
+
+</div>
+
+<script>
+const input = document.getElementById("pw");
+
+input.addEventListener("input", function(){
+    if(input.value === "1312"){
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("bg").style.display = "block";
+        document.getElementById("content").style.display = "block";
+    }
+});
+
+function goInstagram(){
+window.open("https://www.instagram.com/su_hyeon_35?igsh=ejFyZzJ6cGxscWV5&utm_source=qr", "_blank");
+}
+</script>
+
+</body>
+</html>
